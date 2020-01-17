@@ -1,0 +1,19 @@
+set xlabel "Theta [m]" font "Times New Roman,12"
+set ylabel "Phi [m]" font "Times New Roman,12"
+set zlabel "Er [V/m]" font "Times New Roman,12"
+
+set xlabel rotate parallel
+set ylabel rotate parallel
+set zlabel rotate parallel
+
+set xlabel offset 0,-1.5
+set ylabel offset 0,-1
+
+set size ratio -1
+
+set zrange [-1.0e11:1.0e11]
+
+do for[i=0:500]{
+splot sprintf("E%d.dat", i) title sprintf("E%d.dat", i) with line
+pause 0.001
+}

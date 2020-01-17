@@ -1,0 +1,24 @@
+set pm3d
+set pm3d map
+
+set cbrange[-1.0e2:1.0e2]
+set xrange[1.56295:1.57865]
+set yrange[0:0.0313972]
+set palette defined(-1.0e2 'white', 1.0e2 'black')
+
+set xtics 0.005
+set xtics offset -1.0
+
+set xlabel "Theta [rad]" font "Times New Roman,12"
+set ylabel "Phi [rad]" font "Times New Roman,12"
+set cblabel "Er [V/m]" font "Times New Roman,12"
+
+set size ratio -1
+
+set ylabel rotate parallel
+set cblabel rotate parallel
+
+do for[i=0:400]{
+splot sprintf("Er%d.dat", i) title sprintf("Er%d.dat", i) with pm3d
+pause 0.001
+}
